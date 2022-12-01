@@ -14,21 +14,21 @@ func main() {
 		log.Fatal(err)
 	}
 
-	heap := [3]int{0, 0, 0}
+	top3 := [3]int{0, 0, 0}
 
 	var elf = 0
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		if scanner.Text() == "" {
-			if elf > heap[0] {
-				heap[2] = heap[1]
-				heap[1] = heap[0]
-				heap[0] = elf
-			} else if elf > heap[1] {
-				heap[2] = heap[1]
-				heap[1] = elf
-			} else if elf > heap[2] {
-				heap[2] = elf
+			if elf > top3[0] {
+				top3[2] = top3[1]
+				top3[1] = top3[0]
+				top3[0] = elf
+			} else if elf > top3[1] {
+				top3[2] = top3[1]
+				top3[1] = elf
+			} else if elf > top3[2] {
+				top3[2] = elf
 			}
 			elf = 0
 			continue
@@ -41,5 +41,5 @@ func main() {
 		elf += item
 	}
 
-	fmt.Println(heap[0] + heap[1] + heap[2])
+	fmt.Println(top3[0] + top3[1] + top3[2])
 }
