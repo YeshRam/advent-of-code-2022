@@ -14,8 +14,8 @@ func main() {
 		log.Fatal(err)
 	}
 
-	var max = 0
-	var elf = 0
+	max := 0
+	elf := 0
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		if scanner.Text() == "" {

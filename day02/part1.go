@@ -31,10 +31,10 @@ func main() {
 		'Z': 'C',
 	}
 
-	var total = 0
+	total := 0
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
-		var line = scanner.Text()
+		line := scanner.Text()
 		chars := []rune(line)
 		first := chars[0]
 		second := chars[2]
