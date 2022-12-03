@@ -40,14 +40,13 @@ func main() {
 		second := chars[2]
 
 		// Points for what you threw - 1 for Rock, 2 for Paper, 3 for Scissors
-		// ASCII: A = 65, B = 66, C = 67
 		// X = lose, Y = tie, Z = win
 		if second == 'X' {
-			total += int(beats[first]) - 64
+			total += int(beats[first]) - 'A' + 1
 		} else if second == 'Y' {
-			total += int(first) - 64
+			total += int(first) - 'A' + 1
 		} else if second == 'Z' {
-			total += int(loses[first]) - 64
+			total += int(loses[first]) - 'A' + 1
 		}
 
 		// Points for the outcome - 0 for loss, 3 for tie, 6 for win

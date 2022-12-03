@@ -40,7 +40,7 @@ func main() {
 		second := chars[2]
 
 		// Points for what you threw - 1 for Rock, 2 for Paper, 3 for Scissors
-		total += int(second) - 87 // ASCII: Rock = X = 89, Paper = Y = 89, Scissors = Z = 90
+		total += int(second) - 'X' + 1
 
 		// Points for the outcome - 0 for loss, 3 for tie, 6 for win
 		if ties[second] == first {
