@@ -26,14 +26,17 @@ func main() {
 		for _, item := range rucksack1 {
 			if contains(rucksack2, item) && contains(rucksack3, item) {
 				fmt.Printf("Badge: %c\n", item)
-				sum += priority(item)
+				if unicode.IsUpper(item) {
+					sum += int(item) - 38
+				} else {
+					sum += int(item) - 96
+				}
 				break
 			}
 		}
 	}
 
 	fmt.Printf("Sum of Priorities: %d\n", sum)
-
 }
 
 func contains(runes []rune, r rune) bool {
@@ -44,12 +47,4 @@ func contains(runes []rune, r rune) bool {
 	}
 
 	return false
-}
-
-func priority(r rune) int {
-	if unicode.IsUpper(r) {
-		return int(r) - 38
-	} else {
-		return int(r) - 96
-	}
 }

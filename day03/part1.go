@@ -25,19 +25,15 @@ func main() {
 		for i := range first {
 			if strings.Contains(second, string(first[i])) {
 				duplicate := rune(first[i])
-				priorities += priority(duplicate)
+				if unicode.IsUpper(duplicate) {
+					priorities += int(duplicate) - 38
+				} else {
+					priorities += int(duplicate) - 96
+				}
 				break
 			}
 		}
 	}
 
 	fmt.Println(priorities)
-}
-
-func priority(r rune) int {
-	if unicode.IsUpper(r) {
-		return int(r) - 38
-	} else {
-		return int(r) - 96
-	}
 }
